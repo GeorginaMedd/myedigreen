@@ -1,0 +1,179 @@
+/*SPLIT THE SCREEN*/
+
+.left {
+  height: 100%;
+  width: 15%;
+  bottom: 0;
+}
+
+body {
+  font-family: "Courier";
+  background-color: #659dbd;
+}
+
+header {
+  padding: 20px 20px 50px 10px;
+}
+
+footer {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  margin: 10px 0 30px 0;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #124563;
+  opacity: 0.8;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #001929;
+  opacity: 1;
+}
+
+.active {
+  color: #001929;
+  opacity: 1;
+}
+
+.datetime {
+  padding: 50px 0 150px 0;
+}
+
+.earth {
+  height: 35px;
+  width: 35px;
+  border: solid 1px #124563;
+  border-radius: 50%;
+}
+
+.calendar {
+  height: 300px;
+}
+
+.navbar-brand {
+  padding: 0 10px 5px 0;
+}
+
+.side {
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 20px 10px;
+  padding: 10px;
+}
+
+#todohead {
+  margin: 20px 10px 0 10px;
+}
+
+#todo {
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 10px 0 10px;
+  height: 453px;
+}
+
+#to-do {
+  width: 100%;
+}
+
+.quote {
+  padding: 40px 10px;
+  font-size: 15px;
+  text-align: center;
+}
+
+#notes {
+  background: none;
+  color: #001929;
+  border: none;
+  width: 100%;
+  height: 150px;
+}
+
+#notes::placeholder {
+  color: #124563;
+}
+.dropdown-toggle {
+  margin: 0 10px;
+}
+
+.main {
+  display: inline;
+}
+
+.element {
+  color: white;
+  display: block;
+  margin: 20px 5%;
+  padding: 100px 40px 80px 40px;
+}
+
+h1 {
+  font-size: 120px;
+  padding: 0;
+  font-family: "Courier";
+  color: #124563;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: normal;
+  padding: 0 0px 20px 10px;
+}
+
+h3 {
+  padding: 100px 0 0 0;
+  font-size: 20px;
+  font-weight: normal;
+  color: #124563;
+}
+
+.header-frame {
+  height: 100px;
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+  height: 400px; /* The height is 400 pixels */
+  width: 100%; /* The width is the width of the web page */
+}
+
+.mr-sm-2 {
+  /*background: rgba(18, 69, 99, 0.1);*/
+  background: none;
+  border: solid 1px rgba(18, 69, 99, 0.3);
+  border-radius: 0;
+}
+
+.mr-sm-2:focus {
+  background: none;
+  border: solid 1px rgba(18, 69, 99, 0.4);
+  border-radius: 0;
+}
+
+.mybtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#mynavbtn {
+  color: #124563;
+  background-color: #659dbd;
+}
+
+#mynav {
+  border-bottom: #124563 solid 1px;
+}
+
+.navbar {
+  background: #659dbd;
+}
+
+.startup {
+  text-align: center;
+}
+
+.textpanel {
+  padding: 30px 30px;
+}

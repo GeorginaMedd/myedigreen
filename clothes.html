@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WE GO GREEN:Charity Shop Finder</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0 10px;
+      }
+    </style>
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var map;
+      var service;
+      var infowindow;
+
+      function initMap() {
+        var edi = new google.maps.LatLng(55.9447, -3.1893);
+
+        infowindow = new google.maps.InfoWindow();
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: edi,
+          zoom: 12
+        });
+
+        var request = {
+          query: "Charity Shop Edinburgh",
+          fields: ["name", "geometry"]
+        };
+
+        service = new google.maps.places.PlacesService(map);
+
+        service.textSearch(request, function(results, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+              createMarker(results[i]);
+            }
+
+            map.setCenter(results[0].geometry.location);
+          }
+        });
+      }
+
+      function createMarker(place) {
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, "click", function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+    </script>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <!-- my NAVBAR -->
+
+      <nav class="navbar navbar-expand-lg" id="mynav">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/earth.png" alt="" class="earth" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon" id="mynavbtn">
+            +
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="foot.html"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                FOOD
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="food.html">Plastic Free Shops</a>
+                <a
+                  class="dropdown-item"
+                  href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjc2emC_ofhAhVTURUIHTrUBZEQFjAAegQICRAB&url=https%3A%2F%2Fitunes.apple.com%2Fgb%2Fapp%2Ftoo-good-to-go-end-food-waste%2Fid1060683933%3Fmt%3D8&usg=AOvVaw2x1WTtqT08Gm0UP5n3fxk5"
+                  target="_blank"
+                  >To Good To Go</a
+                >
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="clothes.html"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                CLOTHES
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="clothes.html">Charity Shops</a>
+                <a
+                  class="dropdown-item"
+                  href="https://www.thegoodtrade.com/features/fair-trade-clothing"
+                  target="_blank"
+                  >Sustainable Clothing Brands</a
+                >
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                LEARNING
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a
+                  class="dropdown-item"
+                  href="https://www.carbonfootprint.com/calculator.aspx"
+                  target="_blank"
+                  >Calculate My Carbon Footprint</a
+                >
+                <a
+                  class="dropdown-item"
+                  href="https://blog.feedspot.com/zero_waste_blogs/"
+                  target="_blank"
+                  >Blogs</a
+                >
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="SEARCH WITH ECOSIA"
+              aria-label="Search"
+              id="ecosia-search"
+            />
+            <button
+              class="btn  my-2 my-sm-0 mybtn"
+              type="submit"
+              id="ecosia-btn"
+            ></button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <h2>Charity Shops in Edinburgh:</h2>
+
+    <div id="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANZBK7RlIHx4JebEpvMO2SjsV-Yhu0OO4&libraries=places&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+</html>
